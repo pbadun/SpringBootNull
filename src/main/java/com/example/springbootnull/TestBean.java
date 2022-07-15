@@ -1,7 +1,8 @@
 package com.example.springbootnull;
 
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -9,9 +10,10 @@ import java.util.List;
 
 @Component
 @Slf4j
+@Data
+@ConfigurationProperties(prefix = "employees")
 public class TestBean {
 
-    @Value("${employees}")
     private List<Item> items;
 
     @PostConstruct
